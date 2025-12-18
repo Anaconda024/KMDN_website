@@ -16,109 +16,6 @@ window.addEventListener('scroll', () => {
     lastScrollTop = scrollTop;
 });
 
-// Confetti Trail Effect
-const canvasContainer = document.getElementById('canvas-container');
-const canvas = document.createElement('canvas');
-const ctx = canvas.getContext('2d');
-canvasContainer.appendChild(canvas);
-
-canvas.style.position = 'fixed';
-canvas.style.top = '0';
-canvas.style.left = '0';
-canvas.style.width = '100%';
-canvas.style.height = '100%';
-canvas.style.pointerEvents = 'none';
-canvas.style.zIndex = '1';
-
-let particles = [];
-let mouseX = 0;
-let mouseY = 0;
-let isMouseMoving = false;
-let mouseMoveTimer;
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-
-class Particle {
-    constructor(x, y, color) {
-        this.x = x;
-        this.y = y;
-        this.size = Math.random() * 8 + 4;
-        this.speedX = Math.random() * 6 - 3;
-        this.speedY = Math.random() * 6 - 3;
-        this.color = color;
-        this.life = 1;
-        this.decay = Math.random() * 0.02 + 0.01;
-        this.rotation = Math.random() * Math.PI * 2;
-        this.rotationSpeed = Math.random() * 0.1 - 0.05;
-        this.shape = Math.random() > 0.5 ? 'circle' : 'square';
-    }
-    
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        this.speedY += 0.1; // Gravity
-        this.life -= this.decay;
-        this.rotation += this.rotationSpeed;
-        this.size *= 0.99;
-    }
-    
-    draw() {
-        ctx.save();
-        ctx.globalAlpha = this.life;
-        ctx.fillStyle = this.color;
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.rotation);
-        
-        if (this.shape === 'circle') {
-            ctx.beginPath();
-            ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
-            ctx.fill();
-        } else {
-            ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
-        }
-        
-        ctx.restore();
-    }
-}
-
-const colors = [
-    '#FF3366', // Primary pink
-    '#33CCFF', // Secondary cyan
-    '#FFCC00', // Accent yellow
-    '#FF6633', // Orange
-    '#33FF66', // Green
-    '#9966FF'  // Purple
-];
-
-function createConfetti(x, y) {
-    const particleCount = 5;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        particles.push(new Particle(x, y, color));
-    }
-}
-
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    for (let i = particles.length - 1; i >= 0; i--) {
-        particles[i].update();
-        particles[i].draw();
-        
-        if (particles[i].life <= 0 || particles[i].size <= 0) {
-            particles.splice(i, 1);
-        }
-    }
-    
-    requestAnimationFrame(animateParticles);
-}
-
-// Mouse movement detection - confetti effect removed
-
 // Card hover effects with imprint
 const profileCards = document.querySelectorAll('.profile-card');
 const portfolioCards = document.querySelectorAll('.portfolio-card');
@@ -207,16 +104,6 @@ contactForm.addEventListener('submit', (e) => {
         submitBtn.style.background = '#33FF66';
         submitBtn.style.color = '#222222';
         
-        // Create celebration confetti
-        for (let i = 0; i < 50; i++) {
-            setTimeout(() => {
-                createConfetti(
-                    Math.random() * window.innerWidth,
-                    Math.random() * window.innerHeight
-                );
-            }, i * 20);
-        }
-        
         setTimeout(() => {
             submitBtn.textContent = 'Send';
             submitBtn.style.background = '';
@@ -228,34 +115,12 @@ contactForm.addEventListener('submit', (e) => {
 
 // Initialize everything
 window.addEventListener('load', () => {
-    resizeCanvas();
     initStars();
-    animateParticles();
     animateStars();
 });
 
 window.addEventListener('resize', () => {
-    resizeCanvas();
     initStars();
-});
-
-// Add some initial confetti for fun
-setTimeout(() => {
-    for (let i = 0; i < 30; i++) {
-        createConfetti(
-            Math.random() * window.innerWidth,
-            Math.random() * window.innerHeight
-        );
-    }
-}, 1000);
-
-// Add click confetti
-document.addEventListener('click', (e) => {
-    for (let i = 0; i < 20; i++) {
-        setTimeout(() => {
-            createConfetti(e.clientX, e.clientY);
-        }, i * 50);
-    }
 });
 
 // Hero section parallax effect
@@ -267,159 +132,165 @@ window.addEventListener('scroll', () => {
     heroSection.style.transform = `translateY(${rate}px) scale(${1 + scrolled * -0.0005})`;
 });
 
-// Bubble Magnification Effect for Hero Section
-// Warp Effect for Hero Section Background
-const heroSection = document.querySelector('.hero-section');
-const heroBgImage = document.getElementById('hero-bg-image');
-const warpCanvas = document.getElementById('warpCanvas');
-const warpCtx = warpCanvas.getContext('2d');
-
-// Warp effect settings (using your 50px radius and 40 strength example)
-let isWarpEnabled = true;
-let warpRadius = 50;
-let warpStrength = 40;
-let warpMouseX = -1000;
-let warpMouseY = -1000;
-let warpBackgroundImage = null;
-
-function initWarpCanvas() {
-    const rect = heroSection.getBoundingClientRect();
-    warpCanvas.width = rect.width;
-    warpCanvas.height = rect.height;
-    
-    // Load the background image for warping
-    warpBackgroundImage = new Image();
-    warpBackgroundImage.crossOrigin = "anonymous";
-    warpBackgroundImage.src = 'images/background.jpeg'; // Ensure this matches your actual image path
-    warpBackgroundImage.onload = () => {
-        drawWarpEffect();
-    };
-}
-
-function handleWarpMouseMove(e) {
-    if (!isWarpEnabled) return;
-    
-    const rect = heroSection.getBoundingClientRect();
-    warpMouseX = e.clientX - rect.left;
-    warpMouseY = e.clientY - rect.top;
-    drawWarpEffect();
-}
-
-function handleWarpMouseLeave() {
-    warpMouseX = -1000;
-    warpMouseY = -1000;
-    drawWarpEffect();
-}
-
-function drawWarpEffect() {
-    if (!warpBackgroundImage || !warpBackgroundImage.complete) return;
-    
-    warpCtx.clearRect(0, 0, warpCanvas.width, warpCanvas.height);
-    
-    // Create image data for warping
-    const imageData = warpCtx.createImageData(warpCanvas.width, warpCanvas.height);
-    
-    // Draw background image to a temporary canvas for sampling
-    const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = warpCanvas.width;
-    tempCanvas.height = warpCanvas.height;
-    const tempCtx = tempCanvas.getContext('2d');
-    
-    tempCtx.drawImage(warpBackgroundImage, 0, 0, warpCanvas.width, warpCanvas.height);
-    const sourceData = tempCtx.getImageData(0, 0, warpCanvas.width, warpCanvas.height);
-    
-    // Apply sink/warp effect (subtle liquid-like distortion)
-    for (let y = 0; y < warpCanvas.height; y += 2) { // Step by 2 for performance
-        for (let x = 0; x < warpCanvas.width; x += 2) {
-            let sourceX = x;
-            let sourceY = y;
-            
-            // Calculate distance from mouse
-            const dx = x - warpMouseX;
-            const dy = y - warpMouseY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            if (distance < warpRadius) {
-                // Calculate distortion based on distance
-                const ratio = (warpRadius - distance) / warpRadius;
-                const distortion = Math.sin(ratio * Math.PI) * warpStrength;
-                
-                // Apply sink effect - pull pixels toward center
-                sourceX = x + (dx / distance) * distortion;
-                sourceY = y + (dy / distance) * distortion;
-                
-                // Add some wave-like variation for liquid effect
-                const waveX = Math.sin(y * 0.02 + Date.now() * 0.001) * 2;
-                const waveY = Math.cos(x * 0.02 + Date.now() * 0.001) * 2;
-                sourceX += waveX * ratio;
-                sourceY += waveY * ratio;
-            }
-            
-            // Clamp source coordinates
-            sourceX = Math.max(0, Math.min(warpCanvas.width - 1, Math.round(sourceX)));
-            sourceY = Math.max(0, Math.min(warpCanvas.height - 1, Math.round(sourceY)));
-            
-            // Copy pixel from source to destination
-            const destIndex = (y * warpCanvas.width + x) * 4;
-            const sourceIndex = (sourceY * warpCanvas.width + sourceX) * 4;
-            
-            imageData.data[destIndex] = sourceData.data[sourceIndex];
-            imageData.data[destIndex + 1] = sourceData.data[sourceIndex + 1];
-            imageData.data[destIndex + 2] = sourceData.data[sourceIndex + 2];
-            imageData.data[destIndex + 3] = sourceData.data[sourceIndex + 3];
-            
-            // Fill neighboring pixels for smoother effect (simple bilinear)
-            if (x + 1 < warpCanvas.width) {
-                const nextDestIndex = (y * warpCanvas.width + (x + 1)) * 4;
-                imageData.data[nextDestIndex] = sourceData.data[sourceIndex];
-                imageData.data[nextDestIndex + 1] = sourceData.data[sourceIndex + 1];
-                imageData.data[nextDestIndex + 2] = sourceData.data[sourceIndex + 2];
-                imageData.data[nextDestIndex + 3] = sourceData.data[sourceIndex + 3];
-            }
-            
-            if (y + 1 < warpCanvas.height) {
-                const belowDestIndex = ((y + 1) * warpCanvas.width + x) * 4;
-                imageData.data[belowDestIndex] = sourceData.data[sourceIndex];
-                imageData.data[belowDestIndex + 1] = sourceData.data[sourceIndex + 1];
-                imageData.data[belowDestIndex + 2] = sourceData.data[sourceIndex + 2];
-                imageData.data[belowDestIndex + 3] = sourceData.data[sourceIndex + 3];
-            }
-        }
-    }
-    
-    warpCtx.putImageData(imageData, 0, 0);
-    
-    // Add subtle glow effect at warp center
-    if (warpMouseX > 0 && warpMouseX < warpCanvas.width && 
-        warpMouseY > 0 && warpMouseY < warpCanvas.height) {
-        const gradient = warpCtx.createRadialGradient(
-            warpMouseX, warpMouseY, 0,
-            warpMouseX, warpMouseY, warpRadius
-        );
-        gradient.addColorStop(0, 'rgba(51, 204, 255, 0.1)');
-        gradient.addColorStop(1, 'rgba(51, 204, 255, 0)');
+// Three.js Warp Effect for Hero Section
+class ThreeJSWarpEffect {
+    constructor() {
+        this.container = document.getElementById('three-js-container');
+        this.heroSection = document.querySelector('.hero-section');
+        this.scene = null;
+        this.camera = null;
+        this.renderer = null;
+        this.mesh = null;
+        this.mouseX = 0;
+        this.mouseY = 0;
+        this.targetMouseX = 0;
+        this.targetMouseY = 0;
         
-        warpCtx.fillStyle = gradient;
-        warpCtx.fillRect(0, 0, warpCanvas.width, warpCanvas.height);
+        this.init();
+    }
+    
+    init() {
+        // Create scene
+        this.scene = new THREE.Scene();
+        
+        // Create camera
+        this.camera = new THREE.PerspectiveCamera(
+            75,
+            this.container.clientWidth / this.container.clientHeight,
+            0.1,
+            1000
+        );
+        this.camera.position.z = 1;
+        
+        // Create renderer
+        this.renderer = new THREE.WebGLRenderer({ 
+            antialias: true, 
+            alpha: true,
+            powerPreference: 'high-performance'
+        });
+        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.container.appendChild(this.renderer.domElement);
+        
+        // Create plane geometry with high subdivision for smooth warping
+        const geometry = new THREE.PlaneGeometry(2, 2, 64, 64);
+        
+        // Create shader material
+        const material = new THREE.ShaderMaterial({
+            uniforms: {
+                texture: { value: null },
+                warpMouseX: { value: 0 },
+                warpMouseY: { value: 0 },
+                warpRadius: { value: 0.15 },
+                warpStrength: { value: 0.08 },
+                time: { value: 0 }
+            },
+            vertexShader: `
+                varying vec2 vUv;
+                void main() {
+                    vUv = uv;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform sampler2D texture;
+                uniform float warpMouseX;
+                uniform float warpMouseY;
+                uniform float warpRadius;
+                uniform float warpStrength;
+                uniform float time;
+                varying vec2 vUv;
+                
+                void main() {
+                    vec2 uv = vUv;
+                    
+                    // Mouse position in UV space
+                    vec2 mousePos = vec2(warpMouseX, warpMouseY);
+                    
+                    // Distance from current pixel to mouse
+                    vec2 delta = uv - mousePos;
+                    float distance = length(delta);
+                    
+                    // Apply warp effect
+                    if (distance < warpRadius) {
+                        float ratio = (warpRadius - distance) / warpRadius;
+                        float smoothFalloff = sin(ratio * 3.14159) * 0.5;
+                        vec2 distortion = normalize(delta) * smoothFalloff * warpStrength;
+                        uv += distortion;
+                    }
+                    
+                    // Sample and output texture
+                    gl_FragColor = texture2D(texture, uv);
+                }
+            `,
+            transparent: true
+        });
+        
+        // Create mesh
+        this.mesh = new THREE.Mesh(geometry, material);
+        this.scene.add(this.mesh);
+        
+        // Load texture
+        const textureLoader = new THREE.TextureLoader();
+        textureLoader.load('images/background.jpg', (texture) => {
+            material.uniforms.texture.value = texture;
+        }, undefined, (error) => {
+            console.warn('Could not load background image for three.js warp:', error);
+        });
+        
+        // Setup event listeners
+        this.setupEventListeners();
+        
+        // Start animation loop
+        this.animate();
+    }
+    
+    setupEventListeners() {
+        this.heroSection.addEventListener('mousemove', (e) => {
+            const rect = this.heroSection.getBoundingClientRect();
+            this.targetMouseX = (e.clientX - rect.left) / rect.width;
+            this.targetMouseY = 1.0 - ((e.clientY - rect.top) / rect.height);
+        });
+        
+        this.heroSection.addEventListener('mouseleave', () => {
+            this.targetMouseX = -1;
+            this.targetMouseY = -1;
+        });
+        
+        window.addEventListener('resize', () => {
+            this.onWindowResize();
+        });
+    }
+    
+    onWindowResize() {
+        const width = this.container.clientWidth;
+        const height = this.container.clientHeight;
+        
+        this.camera.aspect = width / height;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(width, height);
+    }
+    
+    animate() {
+        requestAnimationFrame(() => this.animate());
+        
+        // Smooth interpolation for mouse position
+        this.mouseX += (this.targetMouseX - this.mouseX) * 0.1;
+        this.mouseY += (this.targetMouseY - this.mouseY) * 0.1;
+        
+        // Update shader uniforms
+        this.mesh.material.uniforms.warpMouseX.value = this.mouseX;
+        this.mesh.material.uniforms.warpMouseY.value = this.mouseY;
+        this.mesh.material.uniforms.time.value += 0.016;
+        
+        this.renderer.render(this.scene, this.camera);
     }
 }
 
-// Initialize the warp effect
-function initWarpEffect() {
-    initWarpCanvas();
-    
-    // Mouse effects disabled on hero section
-    // No event listeners added to prevent mouse interactions
-}
-
-// Update the initialization function
+// Initialize three.js warp effect when page loads
 window.addEventListener('load', () => {
-    resizeCanvas();
-    initStars();
-    animateStars();
-});
-
-window.addEventListener('resize', () => {
-    resizeCanvas();
-    initStars();
+    // Check if running on file:// protocol
+    if (window.location.protocol !== 'file:') {
+        new ThreeJSWarpEffect();
+    }
 });
