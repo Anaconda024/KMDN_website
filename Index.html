@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,161 +8,183 @@
     <link rel="icon" href="images/logo.png" type="image/jpeg">
     <link rel="stylesheet" href="styles/index.css">
 </head>
+
 <body>
     <!-- Auto-hiding Navigation Bar -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar grainy-texture" id="navbar">
         <div class="navbar-content">
             <div class="navbar-logo">KDMN Studio</div>
             <ul class="navbar-links">
                 <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#team" class="nav-link">The Team</a></li>
-                <li><a href="#our-values" class="nav-link">Our Values</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#Gallery" class="nav-link">Gallery</a></li>
                 <li><a href="#contact" class="nav-link">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <div id="canvas-container"></div>
-    
     <!-- Hero Section - Full Screen -->
-<section class="hero-section" id="home">
-    <div class="hero-background">
-        <img id="hero-bg-image" src="images/background.jpg" alt="Background">
-        <canvas id="warpCanvas"></canvas>
-    </div>
-    <div class="content">
-        <img src="images/logo.png" alt="KDMN Studio Logo">
-        <h1>KDMN Studio Group</h1>
-        <p>Effective designs for marketing</p>
-    </div>
-</section>
-
-    <section class="our-values-section" id="our-values">
-        <div class="content">
-            <h1>Our Values</h1>
-            <p>We value creativity with intention, integrity in every interaction, and results that truly matter. Rooted in South Africa’s diverse and dynamic market, we believe in collaboration, continuous innovation, and understanding people first — because meaningful marketing starts with real human connection.</p>
+    <section class="hero-section" id="home">
+        <div class="hero-background">
+            <img id="hero-bg-image" src="images/background1.jpg" alt="Background">
+            <!-- Logo SVG overlapping H1 -->
+            <img id="hero-logo" src="images/logo.svg" alt="KDMN Logo">
+            <!-- KDMN Typography - Rotated, Top-Left -->
+            <h1>KDMN</h1>
+            <!-- Center SVG (centerpic.svg) -->
+            <img id="hero-center-pic" src="images/centerpic.svg" alt="Center Design">
         </div>
-
         <div class="content">
-            <h1>Our Mission</h1>
-            <p>Our mission is to help brands grow with purpose by delivering creative, data-driven marketing solutions that connect authentically with people. We partner with businesses to tell their stories clearly, build trust, and drive measurable results in an ever-evolving digital landscape.</p>
         </div>
     </section>
 
-    
-    <!-- Team Section - Scrollable -->
-    <section class="team-section" id="team">
-        <h2 class="team-heading">Meet the Team</h2>
+    <!-- Info Section -->
+    <section class="info-section grainy-texture" id="about">
+        <h1 class="info-heading section-heading">Info</h1>
         
-        <div class="profile-cards-container">
-            <!-- Card 1: Thulie -->
-            <div class="profile-card">
-                <div class="profile-image-wrapper">
-                    <img src="images/Thulie.jpg" alt="Thulie" class="profile-image">
+        <!-- Row 1: Two containers per row -->
+        <div class="info-row">
+            <div class="content_image_container">
+                <div class="info_image_container">
+                    <img class="info_image" src="images/blank.jpg" alt="white box">
                 </div>
-                <h3 class="profile-name">Thulie</h3>
-                <p class="profile-title">Architect</p>
-                <p class="profile-description">
-                    A visionary architect with an exceptional eye for detail and spatial innovation. 
-                    Thulie combines creative brilliance with technical precision, transforming complex 
-                    concepts into stunning architectural solutions. Known for tireless dedication and 
-                    the ability to push boundaries while maintaining practical excellence.
-                </p>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+                </div>
             </div>
             
-            <!-- Card 2: Sbu -->
-            <div class="profile-card">
-                <div class="profile-image-wrapper">
-                    <img src="images/Sbu.jpg" alt="Sbu" class="profile-image">
+            <div class="content_image_container">
+                <div class="info_image_container">
+                    <img class="info_image" src="images/blank.jpg" alt="white box">
                 </div>
-                <h3 class="profile-name">Sbu</h3>
-                <p class="profile-title">Architect</p>
-                <p class="profile-description">
-                    An innovative architect whose strategic thinking and creative problem-solving 
-                    set new standards in design excellence. Sbu's relentless work ethic and sharp 
-                    analytical mind drive projects from concept to completion with remarkable efficiency. 
-                    A natural leader who inspires collaboration while delivering exceptional results.
-                </p>
+                <div class="content">
+                    <p>Our mission is to help brands grow with purpose by delivering creative, data-driven marketing
+                        solutions that connect authentically with people. We partner with businesses to tell their stories clearly,
+                        build trust, and drive measurable results in an ever-evolving digital landscape.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Row 2: Two containers per row -->
+        <div class="info-row">
+            <div class="content_image_container">
+                <div class="info_image_container">
+                    <img class="info_image" src="images/blank.jpg" alt="white box">
+                </div>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+                </div>
+                
             </div>
             
-            <!-- Card 3: Dube -->
-            <div class="profile-card">
-                <div class="profile-image-wrapper">
-                    <img src="images/Dube.jpg" alt="Dube" class="profile-image">
+            <div class="content_image_container">
+                <div class="info_image_container">
+                    <img class="info_image" src="images/blank.jpg" alt="white box">
                 </div>
-                <h3 class="profile-name">Dube</h3>
-                <p class="profile-title">Architect</p>
-                <p class="profile-description">
-                    A brilliant architect whose passion for sustainable design matches their technical 
-                    expertise. Dube brings fresh perspectives to every project, combining artistic 
-                    vision with rigorous attention to functionality. Their driven approach and creative 
-                    intelligence consistently produce award-worthy architectural masterpieces.
-                </p>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+                </div>
+                
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio-section" id="portfolio">
+    <!-- Gallery Section -->
+    <section class="Gallery-section grainy-texture" id="Gallery">
         <canvas id="stars-canvas"></canvas>
-        <div class="portfolio-content">
-            <h2 class="portfolio-heading">Our Portfolio</h2>
-            <div class="portfolio-cards">
-                <!-- Portfolio Card 1 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-card-inner">
-                        <div class="glowing-border"></div>
-                        <div class="portfolio-card-content">
-                            <img src="images/design1.jpg" alt="Stura Mall" class="portfolio-image">
-                            <div class="portfolio-info">
-                                <h3 class="portfolio-title">Stura Mall</h3>
-                                <p class="portfolio-location">Randburg</p>
-                                <p class="portfolio-description">A modern shopping destination featuring contemporary architecture, premium retail spaces, and innovative design elements that redefine urban commercial experiences.</p>
-                            </div>
+        <div class="Gallery-content">
+            <h1 class="Gallery-heading section-heading">Our Gallery</h1>
+            <div class="Gallery-cards">
+                <!-- Gallery Card 1 -->
+                <div class="Gallery-card">
+                    <div class="Gallery-card-inner">
+                        <div class="Gallery-card-content">
+                            <img src="images/Chris_Vusi.JPG" alt="Stura Mall" class="Gallery-image">
+                            <img src="images/Pop_Chris_Vusi.png" alt="Stura Mall" class="Gallery-image image-overlay">
                         </div>
                     </div>
                 </div>
 
-                <!-- Portfolio Card 2 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-card-inner">
-                        <div class="glowing-border"></div>
-                        <div class="portfolio-card-content">
-                            <img src="images/design2.jpg" alt="Sizwe Hotel" class="portfolio-image">
-                            <div class="portfolio-info">
-                                <h3 class="portfolio-title">Sizwe Hotel</h3>
-                                <p class="portfolio-location">Sandton</p>
-                                <p class="portfolio-description">A luxury hospitality space showcasing elegant interior design, sophisticated guest amenities, and architectural excellence that creates unforgettable experiences.</p>
-                            </div>
+                <!-- Gallery Card 2 -->
+                <div class="Gallery-card">
+                    <div class="Gallery-card-inner">
+                        <div class="Gallery-card-content">
+                            <img src="images/Dubes_Sbu.JPG" alt="Sizwe Hotel" class="Gallery-image">
+                            <img src="images/Pop_Dubes_Sbu.png" alt="Sizwe Hotel" class="Gallery-image image-overlay">
                         </div>
                     </div>
                 </div>
 
-                <!-- Portfolio Card 3 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-card-inner">
-                        <div class="glowing-border"></div>
-                        <div class="portfolio-card-content">
-                            <img src="images/design3.jpg" alt="Koms Guesthouse" class="portfolio-image">
-                            <div class="portfolio-info">
-                                <h3 class="portfolio-title">Koms Guesthouse</h3>
-                                <p class="portfolio-location">Menlyn</p>
-                                <p class="portfolio-description">An intimate boutique accommodation blending comfort with contemporary aesthetics, offering personalized spaces that reflect careful attention to detail and hospitality.</p>
-                            </div>
+                <!-- Gallery Card 3 -->
+                <div class="Gallery-card">
+                    <div class="Gallery-card-inner">
+                        <div class="Gallery-card-content">
+                            <img src="images/Jay_Kha.JPG" alt="Koms Guesthouse" class="Gallery-image">
+                            <img src="images/Pop_Jay_Kha.png" alt="Koms Guesthouse" class="Gallery-image image-overlay">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Card 4 -->
+                <div class="Gallery-card">
+                    <div class="Gallery-card-inner">
+                        <div class="Gallery-card-content">
+                            <img src="images/La_Fam.JPG" alt="La_Fam" class="Gallery-image">
+                            <img src="images/Pop_La_Fam.png" alt="La_Fam" class="Gallery-image image-overlay">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Card 5 -->
+                <div class="Gallery-card">
+                    <div class="Gallery-card-inner">
+                        <div class="Gallery-card-content">
+                            <img src="images/WyWy.JPG" alt="WyWy" class="Gallery-image">
+                            <img src="images/Pop_WyWy.png" alt="WyWy" class="Gallery-image image-overlay">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Card 6 -->
+                <div class="Gallery-card">
+                    <div class="Gallery-card-inner">
+                        <div class="Gallery-card-content">
+                            <img src="images/WyWy_Dubes.JPG" alt="WyWy_Dubes" class="Gallery-image">
+                            <img src="images/Pop_WyWy_Dubes.png" alt="WyWy_Dubes" class="Gallery-image image-overlay">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Card 7 -->
+                <div class="Gallery-card">
+                    <div class="Gallery-card-inner">
+                        <div class="Gallery-card-content">
+                            <img src="images/Vusi.JPG" alt="Vusi" class="Gallery-image">
+                            <img src="images/Pop_Vusi.png" alt="Vusi" class="Gallery-image image-overlay">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Spacer Section -->
+    <section class="spacer-section">
+        <div class="spacer-content">
+            <img id="spacer-image" src="images/background3.jpg" alt="Background">
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <section class="contact-section grainy-texture" id="contact">
+        <h1 class="contact-heading section-heading">Contact Us</h1>
         <div class="contact-content">
-            <h2 class="contact-heading">Get In Touch</h2>
+            <h1 class="contact-heading">Get In Touch</h1>
             <p class="contact-subtitle">Have a project in mind? We'd love to hear from you.</p>
-            
+
             <form class="contact-form" id="contact-form">
                 <div class="form-group">
                     <input type="email" class="email-input" placeholder="Enter your email" required>
@@ -172,21 +195,29 @@
             <div class="social-media">
                 <p class="social-title">Follow Us</p>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon instagram-icon" title="Instagram">
+                    <!-- Instagram Icon (Correct) -->
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                        class="social-icon instagram-icon" title="Instagram">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-                            <path d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z"/>
-                            <circle cx="18.406" cy="5.594" r="1.44"/>
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
+                            <path d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z" />
+                            <circle cx="18.406" cy="5.594" r="1.44" />
                         </svg>
                     </a>
-                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon twitter-icon" title="Twitter">
+                    
+                    <!-- LinkedIn Icon (CORRECTED) -->
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                        class="social-icon linkedin-icon" title="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05 1.883 0 3.616-.543 5.084-1.489-1.767-.037-3.261-1.202-3.775-2.802.249.037.499.062.761.062.36 0 .722-.05 1.06-.137-1.847-.374-3.209-2.008-3.209-3.948v-.05c.537.304 1.157.486 1.816.511-.1-.067-.194-.136-.285-.207a4.002 4.002 0 0 1-.571-5.365c1.999 2.488 4.999 4.099 8.38 4.275-.062-.3-.1-.611-.1-.923 0-2.22 1.796-4.041 4.021-4.041 1.153 0 2.193.432 2.923 1.125.911-.175 1.823-.525 2.685-1.026-.299.931-.931 1.711-1.771 2.209.823-.087 1.614-.32 2.348-.648-.549.82-1.242 1.537-2.037 2.088z"/>
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                     </a>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon facebook-icon" title="Facebook">
+                    
+                    <!-- YouTube Icon (CORRECTED) -->
+                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"
+                        class="social-icon youtube-icon" title="YouTube">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
                     </a>
                 </div>
@@ -196,4 +227,5 @@
 
     <script src="scripts/index.js"></script>
 </body>
+
 </html>
