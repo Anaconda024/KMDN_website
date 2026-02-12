@@ -261,7 +261,7 @@ body {
     top: -3rem;
     right: 5%;
     font-family: 'Damageplan', serif;
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(5rem, 9vw, 15rem);
     color: #2A9D8F;
     transform: rotate(25deg);
     transform-origin: center;
@@ -521,7 +521,7 @@ body {
 .contact-section {
     position: relative;
     background: #264653;
-    padding: 8rem 2rem 6rem;
+    padding: 8rem 0rem 6rem;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -549,7 +549,7 @@ body {
 }
 
 .contact-content {
-    max-width: 600px;
+    max-width: 100%;
     width: 100%;
     text-align: center;
     position: relative;
@@ -638,7 +638,7 @@ body {
 /* Social Icons - Positioned Right, Rotated, Slide In on Hover */
 .social-icons {
     position: fixed;
-    right: -80px; /* Partially off-screen */
+    right: -40px; /* Partially off-screen */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -653,7 +653,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 0;
     transform: rotate(35deg);
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     cursor: pointer;
@@ -671,7 +671,7 @@ body {
 
 /* Individual Icon Backgrounds with Grain */
 .instagram-icon {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background:  #dc2743 ;
 }
 
 .instagram-icon::before {
@@ -689,7 +689,7 @@ body {
             rgba(255, 255, 255, 0.05) 1px,
             rgba(255, 255, 255, 0.05) 2px
         );
-    border-radius: 12px;
+    border-radius: 0;
     pointer-events: none;
 }
 
@@ -712,7 +712,7 @@ body {
             rgba(0, 0, 0, 0.05) 1px,
             rgba(0, 0, 0, 0.05) 2px
         );
-    border-radius: 12px;
+    border-radius: 0;
     pointer-events: none;
 }
 
@@ -735,7 +735,7 @@ body {
             rgba(0, 0, 0, 0.05) 1px,
             rgba(0, 0, 0, 0.05) 2px
         );
-    border-radius: 12px;
+    border-radius: 0;
     pointer-events: none;
 }
 
@@ -743,11 +743,11 @@ body {
 @media (hover: hover) {
     .social-icon:hover {
         right: 20px;
-        transform: translateX(-100px) rotate(35deg) scale(1.1);
+        transform: translateX(-100px) rotate(35deg) scale(1.35);
     }
     
     .social-icon:hover svg {
-        transform: rotate(-35deg) scale(1.1);
+        transform: rotate(-35deg) scale(1.35);
     }
 }
 
@@ -769,13 +769,67 @@ body {
 }
 
 /* ============================================
+   TORN PAPER EFFECT
+   Contact tear element
+   ============================================ */
+.contact-tear {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.border {
+    border-width: 20px 0 20px 0;
+    border-style: solid;
+    border-image: url("../images/bordernew.png") 50 0 50 0 repeat;
+    -webkit-border-image: url("../images/bordernew.png") 50 0 50 0 repeat;
+    -moz-border-image: url("../images/bordernew.png") 50 0 50 0 repeat;
+    border-image-slice: 50 0 50 0 fill;
+    border-image-width: 20px 0 20px 0;
+        background: #264653;
+    backdrop-filter: blur(5px);
+}
+
+.contact-tear-link {
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tear-text {
+    font-family: "Damageplan", serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #264653;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    display: block;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+        background: white;
+}
+
+.contact-tear-link:hover .tear-text {
+    color: #E76F51;
+    transform: scale(1.05);
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.contact-tear:hover {
+    transform: translateY(-5px);
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
 /* Tablet Breakpoint */
 @media (max-width: 1024px) {
     .hero-background h1 {
-        font-size: clamp(3rem, 10vw, 8rem);
+        font-size: clamp(3rem, 10vw, 18rem);
         top: 10%;
         left: 3%;
     }
@@ -927,6 +981,21 @@ body {
     .spacer-section {
         height: 40vh;
     }
+    
+    /* Torn paper responsive */
+    .contact-tear {
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+    
+    .border {
+        border-width: 15px 0 15px 0;
+    }
+    
+    .tear-text {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
 }
 
 /* Small Mobile */

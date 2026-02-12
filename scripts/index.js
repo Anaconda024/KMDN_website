@@ -250,3 +250,4 @@ document.addEventListener('DOMContentLoaded', function() {
    ============================================ */
 console.log('%cKDMN STUDIO', 'font-size: 3rem; font-weight: bold; color: #EAC56A; text-shadow: 3px 3px 0 #264653;');
 console.log('%cDigital Innovation • Experimental Design', 'font-size: 1rem; color: #2A9D8F;');
+

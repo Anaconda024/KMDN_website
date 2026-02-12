@@ -7,6 +7,7 @@
     <title>KDMN Studio Group - Digital Innovation</title>
     <link rel="icon" href="images/logo.png" type="image/jpeg">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/modal.css">
 </head>
 
 <body>
@@ -182,15 +183,14 @@
     <section class="contact-section grainy-texture" id="contact">
         <h1 class="contact-heading section-heading">Contact Us</h1>
         <div class="contact-content">
-            <h1 class="contact-heading">Get In Touch</h1>
-            <p class="contact-subtitle">Have a project in mind? We'd love to hear from you.</p>
+            
+            <!-- Torn Paper Contact Element -->
+            <div class="contact-tear border">
+                <a href="#" id="openModalBtn" class="contact-tear-link">
+                    <span class="tear-text">Get In Touch</span>
+                </a>
+            </div>
 
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <input type="email" class="email-input" placeholder="Enter your email" required>
-                    <button type="submit" class="submit-btn">Send</button>
-                </div>
-            </form>
 
             <div class="social-media">
                 <p class="social-title">Follow Us</p>
@@ -198,11 +198,11 @@
                     <!-- Instagram Icon (Correct) -->
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
                         class="social-icon instagram-icon" title="Instagram">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
-                            <path d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z" />
-                            <circle cx="18.406" cy="5.594" r="1.44" />
-                        </svg>
+                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+</svg>
                     </a>
                     
                     <!-- LinkedIn Icon (CORRECTED) -->
@@ -225,7 +225,75 @@
         </div>
     </section>
 
+    <!-- Redesigned Contact Modal -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-window">
+
+            <!-- Title Bar: solid #59A4FF, red X close -->
+            <div class="modal-title-bar">
+                <span class="modal-title-bar-text">KDMN Studio — Message</span>
+                <button class="modal-close-btn" id="closeModalBtn" aria-label="Close">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="1" x2="11" y2="11" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="11" y1="1" x2="1" y2="11" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Modal Body: 3-col x 2-row grid -->
+            <div class="modal-body">
+
+                <!-- ROW A -->
+                <!-- A1 + A2: "contact us" in orange rectangle -->
+                <div class="modal-header-block">
+                    <h2>contact us</h2>
+                </div>
+                <!-- A3: decorative cell -->
+                <div class="modal-deco-block"></div>
+
+                <!-- ROW B -->
+                <!-- B1: decorative accent cell -->
+                <div class="modal-side-block"></div>
+
+                <!-- B2 + B3: form (input left, label right) -->
+                <div class="modal-form-block">
+                    <form id="contact-modal-form">
+
+                        <div class="modal-field">
+                            <div class="modal-input-wrap">
+                                <input type="text" id="modal-name" name="name" placeholder="Your name" autocomplete="name" />
+                            </div>
+                            <label for="modal-name">fullname:</label>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-input-wrap">
+                                <input type="email" id="modal-email" name="email" placeholder="you@example.com" autocomplete="email" />
+                            </div>
+                            <label for="modal-email">email:</label>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-input-wrap">
+                                <textarea id="modal-message" name="message" placeholder="Your message…"></textarea>
+                            </div>
+                            <label for="modal-message">message:</label>
+                        </div>
+
+                        <div class="modal-actions">
+                            <button type="submit" class="modal-submit-btn">Send</button>
+                        </div>
+
+                    </form>
+                    <p class="modal-success">✓ Message sent! We'll be in touch soon.</p>
+                </div>
+
+            </div><!-- /.modal-body -->
+        </div><!-- /.modal-window -->
+    </div><!-- /#contactModal -->
+
     <script src="scripts/index.js"></script>
+    <script src="scripts/modal.js"></script>
 </body>
 
 </html>
