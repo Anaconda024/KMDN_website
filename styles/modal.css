@@ -29,6 +29,7 @@
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.45);
     overflow: hidden;
     font-family: Arial, sans-serif;
+    position: relative; /* establish stacking context for deco images */
 }
 
 /* TITLE BAR — solid #59A4FF */
@@ -39,6 +40,8 @@
     align-items: center;
     justify-content: space-between;
     border: none;
+    position: relative;
+    z-index: 2;
 }
 
 .modal-title-bar-text {
@@ -78,10 +81,12 @@
 .modal-body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 0.78fr 1fr;
     min-height: 320px;
     border: none;
     gap: 0;
+    position: relative;
+    z-index: 2;
 }
 
 /* A1+A2: orange_rectangle.png background */
@@ -89,7 +94,7 @@
     grid-column: 1 / 3;
     grid-row: 1 / 2;
     background-image: url('../images/orange_rectangle.png');
-    background-size: 86% 80%;
+    background-size: 86% 42%;
     background-position: center;
     background-repeat: no-repeat;
     padding: 1.6rem 1.8rem 1.4rem;
@@ -108,6 +113,7 @@
     line-height: 1;
     text-transform: lowercase;
     margin: 0;
+     transform: translateY(-10px);
 }
 
 /* A3: plain, no decoration */
@@ -140,6 +146,7 @@
     flex-direction: column;
     gap: 0.75rem;
     border: none;
+    transform: translateY(45px);
 }
 
 /* FORM FIELDS — input left, label right */
@@ -195,7 +202,7 @@
     text-align: center;
     padding: 0.4rem 0.6rem;
     background-image: url('../images/blue_rectangle.png');
-    background-size: 100% 100%;
+    background-size: 100% 80%;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
@@ -248,4 +255,36 @@
     .modal-form-block { padding: 1rem; }
     .modal-side-block { display: none; }
     .modal-form-block { grid-column: 1 / 4; }
+}
+/* ============================================
+   DECORATIVE BACKGROUND IMAGES
+   Positioned absolutely behind all modal content
+   ============================================ */
+
+/* Shared base styles — behind everything (z-index: 1) */
+.modal-deco-img {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+/* modal_image_1.jpg — bottom left */
+.modal-deco-img--bl {
+    bottom: 0;
+    left: 0;
+    width: 42%;
+    height: auto;
+    max-height: 55%;
+    object-position: top left;
+}
+
+/* modal_image_2.jpeg — top right */
+.modal-deco-img--tr {
+    top: 0;
+    right: 0;
+    width: 38%;
+    height: auto;
+    max-height: 50%;
+    object-position: top right;
 }
