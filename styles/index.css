@@ -241,7 +241,7 @@ body {
 
 /* ============================================
    INFO SECTION
-   Grainy #EAC56A, chessboard layout
+   Grainy #EAC56A, 4-column grid layout
    ============================================ */
 .info-section {
     position: relative;
@@ -249,6 +249,13 @@ body {
     padding: 8rem 2rem 6rem;
     overflow: visible;
     min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 2400px;
+    margin-left: 0;
+    margin-right: 0;
+    align-items: stretch;
 }
 
 .info-section.grainy-texture::before {
@@ -268,70 +275,59 @@ body {
     z-index: 10;
     letter-spacing: 0.3rem;
     text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+    grid-column: 1 / -1;
 }
 
-/* Chessboard Layout Container - Rows with 2 containers each */
-.info-section .info-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 4rem;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.info-section .content_image_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-}
-
-/* Odd rows: image text */
-.info-section .info-row:nth-child(odd) .content_image_container {
-    grid-template-areas: "image text";
-}
-
-/* Even rows: text image */
-.info-section .info-row:nth-child(even) .content_image_container {
-    grid-template-areas: "text image";
-}
-
-.info_image_container {
-    grid-area: image;
+/* Base info-card styling - Equal sizing */
+.info-card {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    min-height: 280px;
+    height: 100%;
+}
+
+/* Image Container Specific Styling - Distinct look */
+.info_image_container {
+    box-shadow: 8px 8px 0 rgba(38, 70, 83, 0.3);
     transform: rotate(-2deg);
-    transition: transform 0.3s ease;
+    background: #fff;
+    padding: 8px;
 }
 
 .info_image_container:hover {
     transform: rotate(0deg) scale(1.02);
+    box-shadow: 12px 12px 0 rgba(38, 70, 83, 0.2);
 }
 
 .info_image {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
+    display: block;
+    border-radius: 4px;
 }
 
+/* Content Container Specific Styling - Different look */
 .info-section .content {
-    grid-area: text;
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.7;
     color: #264653;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 6px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.85);
     transform: rotate(1deg);
-    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(4px);
 }
 
 .info-section .content:hover {
     transform: rotate(0deg);
+    background: rgba(255, 255, 255, 0.95);
+    border-style: solid;
 }
 
 /* ============================================
@@ -877,7 +873,16 @@ top: 3rem;
         gap: 1.5rem;
     }
     
- 
+    /* Info section - 2 columns on tablet */
+    .info-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 6rem 1.5rem 4rem;
+    }
+    
+    .info-card {
+        min-height: 240px;
+    }
 }
 
 /* Mobile Breakpoint */
@@ -908,34 +913,23 @@ top: 3rem;
         max-height: 80%;
     }
     
-    /* Info section - Stack vertically */
+    /* Info section - single column on mobile */
     .info-section {
-        padding: 6rem 1.5rem 4rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
     .info-section .section-heading {
         top: -2rem;
         right: 2%;
         font-size: clamp(2rem, 8vw, 4rem);
-        transform: rotate(170deg);
-    }
-    
-    .info-section .content_image_container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-bottom: 2.5rem;
-    }
-    
-    .info-section .content_image_container:nth-child(odd),
-    .info-section .content_image_container:nth-child(even) {
-        grid-template-areas: 
-            "image"
-            "text";
+        transform: rotate(15deg);
     }
     
     .info_image_container,
     .info-section .content {
         transform: rotate(0deg);
+        min-height: 200px;
     }
     
     /* Gallery section */
@@ -951,15 +945,48 @@ top: 3rem;
     }
     
     .Gallery-cards {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: stretch;
         gap: 2rem;
         padding-top: 3rem;
+    }
+
+    .Gallery-card {
+        width: 100%;
     }
     
     /* Reset rotations on mobile for better readability */
     .Gallery-card:nth-child(n) {
         transform: rotate(0deg) translateY(0);
+        aspect-ratio: 4/3;
+        min-height: 260px;
     }
+
+    /* Positioning images randomly */
+#image_7 {
+left:5rem;
+top: 6rem;
+}
+
+#image_6 {
+left:3rem;
+top: 3rem;
+}
+
+#image_2 {
+left:0rem;
+top: -4rem;
+}
+
+#image_4 {
+left: 2rem;
+top: 4rem;
+}
+
+#image_1 {
+left:-8rem;
+top: 3rem;
+}
     
     /* Contact section */
     .contact-section {
@@ -1016,18 +1043,33 @@ top: 3rem;
     /* Torn paper responsive */
     .contact-tear {
         margin: 2rem auto;
-        padding: 1.5rem;
+        padding: 1.2rem 0;
     }
     
     .border {
-        border-width: 15px 0 15px 0;
+        border-width: 0 0 0 0;
     }
+
     
     .tear-text {
         font-size: clamp(1.5rem, 5vw, 2.5rem);
     }
 
+     /* Replace the existing .contact-content with this: */
+    .contact-content {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 0rem; /* Add some side padding so text doesn't touch edges */
+        box-sizing: border-box;
+    }
+    
+    /* Also ensure the parent contact-section allows full width */
+    .contact-section {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
+
 
 /* Small Mobile */
 @media (max-width: 480px) {
