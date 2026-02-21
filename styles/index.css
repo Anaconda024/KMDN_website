@@ -1090,3 +1090,247 @@ top: 3rem;
         font-size: clamp(1.8rem, 8vw, 3rem);
     }
 }
+
+/* ============================================
+   NAVIGATION BAR - UPDATED WITH HAMBURGER MENU
+   ============================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 1.2rem 2rem;
+    z-index: 800;
+    transition: transform 0.3s ease;
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.navbar-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar-logo {
+    font-family: 'Pixel Gamer', monospace;
+    font-size: 1.5rem;
+    color: #EAC56A;
+    letter-spacing: 2px;
+}
+
+/* Hide checkbox */
+.side-menu {
+    display: none;
+}
+
+/* Hamburger Icon - Hidden by default on desktop */
+.hamb {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+/* Hamburger lines */
+.hamb-line {
+    background: #EAC56A;
+    display: block;
+    height: 3px;
+    position: relative;
+    width: 28px;
+    transition: all 0.3s ease;
+}
+
+/* Top and bottom lines using pseudo-elements */
+.hamb-line::before,
+.hamb-line::after {
+    background: #EAC56A;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.hamb-line::before {
+    top: -8px;
+}
+
+.hamb-line::after {
+    top: 8px;
+}
+
+/* Desktop Navigation Links */
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #EAC56A;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #EAC56A;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE - HAMBURGER MENU
+   ============================================ */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    /* Show hamburger icon on mobile */
+    .hamb {
+        display: block;
+    }
+    
+    /* Side Navigation Menu - Hidden by default */
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off-screen to the right */
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(30, 30, 30, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem;
+        gap: 2rem;
+        transition: right 0.4s ease;
+        z-index: 999;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* When checkbox is checked, slide in the menu */
+    .side-menu:checked ~ .navbar-links {
+        right: 0;
+    }
+    
+    /* Transform hamburger to X when checked */
+    .side-menu:checked ~ .hamb .hamb-line {
+        background: transparent;
+    }
+    
+    .side-menu:checked ~ .hamb .hamb-line::before {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    
+    .side-menu:checked ~ .hamb .hamb-line::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    
+    /* Mobile nav link styles */
+    .navbar-links li {
+        width: 100%;
+    }
+    
+    .nav-link {
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(234, 197, 106, 0.2);
+    }
+    
+    .nav-link::after {
+        display: none; /* Remove underline animation on mobile */
+    }
+    
+    /* Optional: Add overlay when menu is open */
+    .side-menu:checked ~ .navbar-links::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: -100vw; /* Cover the left side */
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+    }
+    
+    /* Prevent body scroll when menu is open */
+    body:has(.side-menu:checked) {
+        overflow: hidden;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .navbar-logo {
+        font-size: 1.2rem;
+    }
+    
+    .hamb-line {
+        width: 24px;
+        height: 2px;
+    }
+    
+    .hamb-line::before {
+        top: -7px;
+    }
+    
+    .hamb-line::after {
+        top: 7px;
+    }
+    
+    .navbar-links {
+        width: 80%;
+        padding: 4rem 1.5rem 1.5rem;
+    }
+}
