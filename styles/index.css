@@ -158,6 +158,9 @@ body {
     width: 100%;
 }
 
+#openModalBtn {
+  cursor: pointer; /* Changes the cursor to a hand icon */
+}
 /* ============================================
    HERO SECTION
    Full-screen, background1.jpg, KDMN rotated text
@@ -276,13 +279,14 @@ body {
     letter-spacing: 0.3rem;
     text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
     grid-column: 1 / -1;
+    cursor: pointer;
 }
 
 /* Base info-card styling - Equal sizing */
 .info-card {
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 0px;
     transition: all 0.3s ease;
     min-height: 280px;
     height: 100%;
@@ -306,7 +310,7 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 4px;
+    border-radius: 0px;
 }
 
 /* Content Container Specific Styling - Different look */
@@ -438,7 +442,7 @@ body {
     width: 100%;
     height: 100%;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 0px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
@@ -1334,3 +1338,138 @@ top: 3rem;
         padding: 4rem 1.5rem 1.5rem;
     }
 }
+
+.social-dock {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    z-index: 100;
+  }
+
+  .tab {
+    position: relative;
+    width: 174px;
+    height: 58px;
+    right: -116px;
+    border-radius: 0px 0 0 0px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-right: none;
+    cursor: pointer;
+    transition: right 0.42s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.22s ease,
+                border-color 0.22s ease,
+                transform 0.22s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transform: rotate(-45deg)
+  }
+
+  .tab-fb  { background: #12111a; }
+  .tab-tw  { background: #11121a; }
+  .tab-ig  { background: #130f1a; }
+
+  .tab:hover { 
+    right: -58px; border-color: rgba(255,255,255,0.12);
+    transform: rotate(-45deg)
+ }
+
+  .tab-fb:hover { background: #151222; }
+  .tab-tw:hover { background: #101620; }
+  .tab-ig:hover { background: #1a0f1a; }
+
+  .icon-zone {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .icon-zone svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .icon-zone img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .tab:hover .icon-zone svg { transform: scale(1.15); }
+
+  .tab:hover .icon-zone img { transform: scale(1.15); }
+
+  .icon-sep {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.07);
+    flex-shrink: 0;
+  }
+
+  .label-zone {
+    padding: 0 16px 0 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+  }
+
+  .label-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.28s ease 0.08s, transform 0.3s ease 0.08s;
+  }
+
+  .label-handle {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.28s ease 0.13s, transform 0.3s ease 0.13s;
+  }
+
+  .tab:hover .label-name,
+  .tab:hover .label-handle {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .tab-fb .label-name { color: #7b9cf7; }
+  .tab-fb .label-handle { color: #4a5a8a; }
+
+  .tab-tw .label-name { color: #6bc5f5; }
+  .tab-tw .label-handle { color: #3a5870; }
+
+  .tab-ig .label-name { color: #e06bd0; }
+  .tab-ig .label-handle { color: #7a3d70; }
+
+  .glow-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    border-radius: 0;
+    opacity: 0;
+    transition: opacity 0.28s ease;
+  }

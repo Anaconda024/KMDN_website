@@ -251,3 +251,33 @@ document.addEventListener('DOMContentLoaded', function() {
 console.log('%cKDMN STUDIO', 'font-size: 3rem; font-weight: bold; color: #EAC56A; text-shadow: 3px 3px 0 #264653;');
 console.log('%cDigital Innovation • Experimental Design', 'font-size: 1rem; color: #2A9D8F;');
 
+const tabs = document.querySelectorAll('.tab');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('mouseenter', () => {
+      tabs.forEach(other => {
+        if (other !== tab) {
+          other.style.opacity = '0.45';
+          // Always include rotate(-45deg) — setting transform alone would overwrite the CSS rule
+          other.style.transform = 'rotate(-45deg) scale(0.97)';
+        }
+      });
+    });
+
+    tab.addEventListener('mouseleave', () => {
+      tabs.forEach(other => {
+        other.style.opacity = '';
+        // Clear the inline style so the CSS rotate(-45deg) rule takes over again
+        other.style.transform = '';
+      });
+    });
+  });
+
+  tabs.forEach(tab => {
+    tab.style.transition =
+      'right 0.42s cubic-bezier(0.34, 1.56, 0.64, 1), ' +
+      'background 0.22s ease, ' +
+      'border-color 0.22s ease, ' +
+      'opacity 0.22s ease, ' +
+      'transform 0.22s ease';
+  });
