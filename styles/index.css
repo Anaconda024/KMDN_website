@@ -1473,3 +1473,45 @@ top: 3rem;
     opacity: 0;
     transition: opacity 0.28s ease;
   }
+
+  /* ============================================================
+   SECTION HEADING — SHAKE EFFECT
+   Add this to your <style> section
+   ============================================================ */
+
+/* Base heading style (add this class to your h2, h3, etc.) */
+.section-heading {
+  display: inline-block;        /* Required for transform to work properly */
+  cursor: default;
+  /* Prevent selection during shake */
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/* The shake animation keyframes — subtle and quick */
+@-webkit-keyframes microShake {
+  0%, 100% { -webkit-transform: translateX(0); transform: translateX(0); }
+  25%      { -webkit-transform: translateX(-3px) rotate(-1deg); transform: translateX(-3px) rotate(-1deg); }
+  75%      { -webkit-transform: translateX(3px) rotate(1deg); transform: translateX(3px) rotate(1deg); }
+}
+
+@keyframes microShake {
+  0%, 100% { -webkit-transform: translateX(0); transform: translateX(0); }
+  25%      { -webkit-transform: translateX(-3px) rotate(-1deg); transform: translateX(-3px) rotate(-1deg); }
+  75%      { -webkit-transform: translateX(3px) rotate(1deg); transform: translateX(3px) rotate(1deg); }
+}
+
+/* Applied class that triggers the animation */
+.section-heading.is-shaking {
+  -webkit-animation: microShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          animation: microShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Optional: subtle color flash to match your tab theme */
+.section-heading.is-shaking {
+  color: #e0ddd8;
+  text-shadow: 0 0 20px rgba(123, 156, 247, 0.3); /* faint blue glow */
+  -webkit-transition: text-shadow 0.3s ease;
+          transition: text-shadow 0.3s ease;
+}

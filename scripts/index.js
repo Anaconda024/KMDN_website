@@ -281,3 +281,43 @@ const tabs = document.querySelectorAll('.tab');
       'opacity 0.22s ease, ' +
       'transform 0.22s ease';
   });
+
+
+/* ============================================================
+   SECTION HEADING — SHAKE TRIGGER
+   Add this before the closing </body> tag or in your existing script
+   ============================================================ */
+
+(function () {
+  'use strict';
+  
+  const headings = document.querySelectorAll('.section-heading');
+  
+  headings.forEach(function (heading) {
+    
+    // Mouse enter: add shake class
+    heading.addEventListener('mouseenter', function () {
+      // Prevent restarting animation if already shaking
+      if (this.classList.contains('is-shaking')) return;
+      
+      this.classList.add('is-shaking');
+    });
+    
+    // Animation end: remove class so it can be triggered again
+    heading.addEventListener('animationend', function () {
+      this.classList.remove('is-shaking');
+    });
+    
+    // Optional: Touch support for mobile
+    heading.addEventListener('touchstart', function (e) {
+      // Prevent double-firing on devices that emulate mouse events
+      e.preventDefault();
+      this.classList.remove('is-shaking');
+      // Force reflow to restart animation
+      void this.offsetWidth;
+      this.classList.add('is-shaking');
+    }, { passive: false });
+    
+  });
+  
+})();
