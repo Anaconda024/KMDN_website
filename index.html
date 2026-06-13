@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KDMN Studio Group - Digital Innovation</title>
     <link rel="icon" href="images/logo.png" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Oswald:ital,wght@1,500;1,600;1,700&family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/modal.css">
 </head>
@@ -14,16 +17,20 @@
     <!-- Auto-hiding Navigation Bar -->
     <nav class="navbar grainy-texture" id="navbar">
         <div class="navbar-content">
-            <div class="navbar-logo">KDMN Studio</div>
-            
+
+            <a href="#home" class="brand">
+                <img id="hero-logo" src="images/KDMN_logo2.png" alt="KDMN Logo">
+                <h1>KDMN</h1>
+            </a>
+
             <!-- Hamburger Menu Checkbox (Hidden) -->
             <input class="side-menu" type="checkbox" id="side-menu"/>
-            
+
             <!-- Hamburger Icon Label -->
             <label class="hamb" for="side-menu" aria-label="Menu">
                 <span class="hamb-line"></span>
             </label>
-            
+
             <!-- Navigation Links -->
             <ul class="navbar-links menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
@@ -35,180 +42,204 @@
     </nav>
 
     <!-- Hero Section - Full Screen -->
-    <section class="hero-section" id="home">
-        <div class="hero-background">
-            <img id="hero-bg-image" src="images/background1.jpg" alt="Background">
-            <!-- Logo SVG overlapping H1 -->
-            <img id="hero-logo" src="images/logo.svg" alt="KDMN Logo">
-            <!-- KDMN Typography - Rotated, Top-Left -->
-            <h1>KDMN</h1>
-            <!-- Center SVG (centerpic.svg) -->
-            <img id="hero-center-pic" src="images/centerpic.svg" alt="Center Design">
+    <section class="hero-section" id="home" data-screen-label="Hero">
+        <div class="hero-background"></div>
+        <div class="hero-inner">
+            <article class="hero-card">
+                <div class="hero-card-inner">
+                    <p class="hero-eyebrow">KDMN Studio Group</p>
+                    <h2 class="hero-heading">Stop Guessing Why Your Business Isn&rsquo;t Growing Online</h2>
+                    <p class="hero-body">We help gyms, restaurants, caf&eacute;s, health professionals, and local businesses get more eyes on their brand without forcing you to become a full-time &ldquo;content expert.&rdquo; You run the business. We handle the online side. Social media management, content creation, and websites that actually make people book, buy, message, and show up.</p>
+                    <a href="#about" class="hero-cta">Let&rsquo;s talk &rarr;</a>
+                </div>
+            </article>
         </div>
-        <div class="content">
-        </div>
-    </section>
 
-    <!-- Info Section -->
-    <section class="info-section grainy-texture" id="about">
-        <h1 class="info-heading section-heading">Info</h1>
-        
-        <!-- Row 1: Two containers per row -->
-                <div class="info_image_container info-card">
-                    <img class="info_image" src="images/blank.jpg" alt="white box">
-                </div>
-                <div class="content info-card">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-                </div>
-            
-                <div class="info_image_container info-card">
-                    <img class="info_image" src="images/blank.jpg" alt="white box">
-                </div>
-                <div class="content info-card">
-                    <p>Our mission is to help brands grow with purpose by delivering creative, data-driven marketing
-                        solutions that connect authentically with people. We partner with businesses to tell their stories clearly,
-                        build trust, and drive measurable results in an ever-evolving digital landscape.</p>
-                </div>
-        
-        <!-- Row 2: Two containers per row -->
-                <div class="info_image_container info-card">
-                    <img class="info_image" src="images/blank.jpg" alt="white box">
-                </div>
-                <div class="content info-card">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-                </div>
-                
-                    <img class="info_image" src="images/blank.jpg" alt="white box">
-                </div>
-                <div class="content info-card">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-                </div>
-    </section>
-
-    <!-- Spacer Section -->
-    <section class="spacer-section">
-        <div class="spacer-content">
-            <img id="spacer-image" src="images/background3.jpg" alt="Background">
+        <!-- Yellow tear banner — spans 2/3 from left edge, tilted -3deg -->
+        <div class="hero-banner">
+            <p class="hero-banner-text">REAL PEOPLE. REAL STRATEGY.
+                <span class="banner-highlight">REAL RESULTS.
+                    <img class="banner-circle" src="images/16_crop.png" alt="" aria-hidden="true">
+                </span>
+            </p>
         </div>
     </section>
 
-    
+    <!-- ============================================
+         PAIN POINTS — distressed black section
+         ============================================ -->
+    <section class="painpoints" id="why" data-screen-label="Pain Points">
+        <div class="painpoints-inner">
+            <div class="painpoints-copy">
+                <p class="pp-lead">Most business owners already know they should be posting online.</p>
+                <p class="pp-label">The problem is:</p>
+                <ul class="pp-list">
+                    <li>You don&rsquo;t have the time</li>
+                    <li>You don&rsquo;t know what actually works</li>
+                    <li>Every marketing agency talks like an alien</li>
+                    <li>Your staff is too busy to film content all day</li>
+                    <li>Your social media looks dead</li>
+                    <li>Your website looks old or doesn&rsquo;t exist</li>
+                </ul>
+                <p class="pp-outro"><span class="pp-outro-strong">That&rsquo;s where we come in.</span> We create content, manage your online presence, and build websites that help local businesses look active, trusted, and worth spending money with.</p>
+            </div>
+            <div class="painpoints-cta">
+                <a href="#contact" class="brutal-btn">Get a free plan &rarr;</a>
+            </div>
+        </div>
+    </section>
 
-            <nav class="social-dock" aria-label="Social media links">
+    <!-- ============================================
+         OUR SERVICES — teal section
+         ============================================ -->
+    <section class="services" id="services" data-screen-label="Our Services">
+        <aside class="services-title" aria-hidden="false">
+            <span class="services-title-text">WHAT WE DO</span>
+        </aside>
 
-  <!-- Facebook -->
-  <a href="https://facebook.com" target="_blank" rel="noopener" class="tab tab-fb" aria-label="Facebook">
-    <div class="glow-line"></div>
-    <div class="icon-zone">
-      <img src="images/logos/facebook_logo.png" alt="Facebook logo">
-    </div>
-    <div class="icon-sep"></div>
-    <div class="label-zone">
-      <span class="label-name">Facebook</span>
-      <span class="label-handle">@yourpage</span>
-    </div>
-  </a>
+        <div class="services-grid">
+            <div class="services-divider" data-pos="1"></div>
+            <div class="services-divider" data-pos="2"></div>
 
-  <!-- Linkedin -->
-  <a href="https://linkedin.com" target="_blank" rel="noopener" class="tab tab-tw" aria-label="LinkedIn (linkedin)">
-    <div class="glow-line"></div>
-    <div class="icon-zone">
-      <img src="images/logos/linkedIn-logo.jpg" alt="LinkedIn logo">
-    </div>
-    <div class="icon-sep"></div>
-    <div class="label-zone">
-      <span class="label-name">LinkedIn / X</span>
-      <span class="label-handle">@yourhandle</span>
-    </div>
-  </a>
+            <!-- Column 01 -->
+            <article class="service-col">
+                <div class="service-visual">
+                    <img src="images/27_crop.png" alt="Professional video camera" class="service-img">
+                </div>
+                <h3 class="service-heading">01. Content Creation</h3>
+                <p class="service-body">Photos, videos, reels, graphics, interviews, gym edits, food shots, testimonials, promo campaigns, brand visuals. We make your business look alive online.</p>
+                <a href="#contact" class="service-btn">Learn more &rarr;</a>
+            </article>
 
-  <!-- Instagram -->
-  <a href="https://instagram.com" target="_blank" rel="noopener" class="tab tab-ig" aria-label="Instagram">
-    <div class="glow-line"></div>
-    <div class="icon-zone">
-      <img src="images/logos/Instagram-Logo-2011.png" alt="Instagram logo">
-    </div>
-    <div class="icon-sep"></div>
-    <div class="label-zone">
-      <span class="label-name">Instagram</span>
-      <span class="label-handle">@yourprofile</span>
-    </div>
-  </a>
+            <!-- Column 02 -->
+            <article class="service-col">
+                <div class="service-visual service-visual--stack">
+                    <img src="images/28_crop.png" alt="DSLR camera" class="service-img service-img--back">
+                    <img src="images/30_crop.png" alt="Phone showing a social feed" class="service-img service-img--front">
+                </div>
+                <h3 class="service-heading">02. Social Media Management</h3>
+                <p class="service-body">We handle posting, captions, scheduling, strategy, growth, audience engagement, and keeping your pages active consistently. Because dead pages scare customers away.</p>
+                <a href="#contact" class="service-btn">Learn more &rarr;</a>
+            </article>
 
-</nav>
+            <!-- Column 03 -->
+            <article class="service-col">
+                <div class="service-visual">
+                    <img src="images/29_crop.png" alt="Laptop showing a website" class="service-img">
+                </div>
+                <h3 class="service-heading">03. Web Design</h3>
+                <p class="service-body">Fast, modern websites built for real customers, not designers trying to win awards. Easy to navigate. Easy to contact you. Easy to buy from.</p>
+                <a href="#contact" class="service-btn">Learn more &rarr;</a>
+            </article>
+        </div>
+    </section>
 
+    <!-- ============================================
+         TRUSTED BY — torn paper logos banner
+         ============================================ -->
+    <section class="trusted" id="trusted" data-screen-label="Trusted By">
+        <div class="trusted-paper">
+            <div class="trusted-banner">
+                <h2 class="trusted-title">Trusted by these businesses like yours</h2>
+            </div>
+            <div class="trusted-logos" aria-label="Client logos">
+                <div class="logo-slot"></div>
+                <div class="logo-slot"></div>
+                <div class="logo-slot"></div>
+                <div class="logo-slot"></div>
+                <div class="logo-slot"></div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Redesigned Contact Modal -->
-    <div id="contactModal" class="modal-overlay">
-        <div class="modal-window">
+    <!-- ============================================
+         SPLIT CONVERSION AREA — pricing + contact
+         ============================================ -->
+    <section class="convert" id="pricing" data-screen-label="Pricing & Contact">
+        <!-- LEFT COLUMN: Pricing & Packages -->
+        <div class="convert-left">
+            <div class="pricing-copy">
+                <h3 class="pricing-heading">Simple pricing.<br>Big impact.</h3>
+                <p class="pricing-sub">No fluff. No hidden fees. Just packages that work.</p>
+                <a href="#contact" class="price-btn">View pricing &rarr;</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-card-inner">
+                    <p class="card-eyebrow">Packages start at</p>
+                    <p class="card-price">R8&nbsp;999</p>
+                    <ul class="card-features">
+                        <li>Content creation</li>
+                        <li>Social media management</li>
+                        <li>Web design</li>
+                        <li>Monthly strategy calls</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-            <!-- Decorative background images (behind all content) -->
-            <img src="images/modals/modal_image_1.jpg" class="modal-deco-img modal-deco-img--bl" alt="">
-            <img src="images/modals/modal_image_2.jpg" class="modal-deco-img modal-deco-img--tr" alt="">
+        <!-- RIGHT COLUMN: Why Work With Us (gold text block + standalone image) -->
+        <div class="convert-right">
+            <div class="why-text">
+                <h3 class="why-title">Why work with us?</h3>
+                <ul class="why-list">
+                    <li>
+                        <span class="why-strong">We keep it real</span>
+                        <span class="why-desc">No corporate BS</span>
+                    </li>
+                    <li>
+                        <span class="why-strong">We get results</span>
+                        <span class="why-desc">Strategies that grow your business</span>
+                    </li>
+                    <li>
+                        <span class="why-strong">We handle it all</span>
+                        <span class="why-desc">You focus on your business, we handle the rest</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="why-image">
+                <img src="images/LetsWorkTogether2.png" alt="Let&rsquo;s work together">
+            </div>
+        </div>
+    </section>
 
-            <!-- Title Bar: solid #59A4FF, red X close -->
-            <div class="modal-title-bar">
-                <span class="modal-title-bar-text">KDMN Studio — Message</span>
-                <button class="modal-close-btn" id="closeModalBtn" aria-label="Close">
-                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="1" y1="1" x2="11" y2="11" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/>
-                        <line x1="11" y1="1" x2="1" y2="11" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/>
-                    </svg>
-                </button>
+    <!-- ============================================
+         CONTACT US — teal torn-paper footer
+         ============================================ -->
+    <section class="contact" id="contact" data-screen-label="Contact Us">
+        <div class="contact-inner">
+            <!-- LEFT COLUMN: Contact & CTA -->
+            <div class="contact-left">
+                <h2 class="contact-heading">Ready to level up your business</h2>
+                <p class="contact-sub">let&rsquo;s talk about how we can help</p>
+                <a id="footerContactBtn" class="contact-cta">Get in touch &rarr;</a>
             </div>
 
-            <!-- Modal Body: 3-col x 2-row grid -->
-            <div class="modal-body">
-
-                <!-- ROW A -->
-                <!-- A1 + A2: "contact us" in orange rectangle -->
-                <div class="modal-header-block">
-                    <h2>contact us</h2>
+            <!-- RIGHT COLUMN: Socials -->
+            <div class="contact-right">
+                <h3 class="follow-title">Follow Us</h3>
+                <div class="social-row" aria-label="Social media links">
+                    <a class="social-icon" href="#" aria-label="WhatsApp">
+                        <img src="images/social-wa.png" alt="WhatsApp">
+                    </a>
+                    <a class="social-icon" href="#" aria-label="Instagram">
+                        <img src="images/social-ig.png" alt="Instagram">
+                    </a>
+                    <a class="social-icon" href="#" aria-label="Email">
+                        <img src="images/social-mail.png" alt="Email">
+                    </a>
+                    <a class="social-icon" href="#" aria-label="Book a call">
+                        <img src="images/social-cal.png" alt="Book a call">
+                    </a>
                 </div>
-                <!-- A3: decorative cell -->
+            </div>
+        </div>
 
-                <!-- ROW B -->
-                <!-- B1: decorative accent cell -->
-
-                <!-- B2 + B3: form (input left, label right) -->
-                <div class="modal-form-block">
-                    <form id="contact-modal-form">
-
-                        <div class="modal-field">
-                            <div class="modal-input-wrap">
-                                <input type="text" id="modal-name" name="name" placeholder="Your name" autocomplete="name" />
-                            </div>
-                            <label for="modal-name">fullname:</label>
-                        </div>
-
-                        <div class="modal-field">
-                            <div class="modal-input-wrap">
-                                <input type="email" id="modal-email" name="email" placeholder="you@example.com" autocomplete="email" />
-                            </div>
-                            <label for="modal-email">email:</label>
-                        </div>
-
-                        <div class="modal-field">
-                            <div class="modal-input-wrap">
-                                <textarea id="modal-message" name="message" placeholder="Your message…"></textarea>
-                            </div>
-                            <label for="modal-message">message:</label>
-                        </div>
-
-                        <div class="modal-actions">
-                            <button type="submit" class="modal-submit-btn">Send</button>
-                        </div>
-
-                    </form>
-                    <p class="modal-success">✓ Message sent! We'll be in touch soon.</p>
-                </div>
-
-            </div><!-- /.modal-body -->
-        </div><!-- /.modal-window -->
-    </div><!-- /#contactModal -->
+        <!-- Checkered footer line + centered logo -->
+        <div class="contact-footer">
+            <div class="checker-line"></div>
+            <img class="footer-logo" src="images/KDMN_logo-perfect.png" alt="KDMN">
+        </div>
+    </section>
 
     <script src="scripts/index.js"></script>
     <script src="scripts/modal.js"></script>
