@@ -24,7 +24,10 @@
 .modal-window {
     width: 580px;
     max-width: 95vw;
-    background: #C8FFA2;
+    background-image: url('../images/modal_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border: none;
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.45);
     overflow: hidden;
@@ -120,7 +123,7 @@
 .modal-deco-block {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
-    background: #C8FFA2;
+    background: transparent;
     border: none;
 }
 
@@ -130,7 +133,7 @@
 .modal-side-block {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    background: #C8FFA2;
+    background: transparent;
     border: none;
 }
 
@@ -140,7 +143,7 @@
 .modal-form-block {
     grid-column: 2 / 4;
     grid-row: 2 / 3;
-    background: #C8FFA2;
+    background: transparent;
     padding: 1.4rem 1.6rem 1.4rem 1.2rem;
     display: flex;
     flex-direction: column;
@@ -201,7 +204,7 @@
     min-width: 72px;
     text-align: center;
     padding: 0.4rem 0.6rem;
-    background-image: url('../images/blue_rectangle.png');
+    background-image: url('../images/dark_orange_rectangle.png');
     background-size: 100% 80%;
     background-repeat: no-repeat;
     background-position: center;
@@ -255,36 +258,4 @@
     .modal-form-block { padding: 1rem; }
     .modal-side-block { display: none; }
     .modal-form-block { grid-column: 1 / 4; }
-}
-/* ============================================
-   DECORATIVE BACKGROUND IMAGES
-   Positioned absolutely behind all modal content
-   ============================================ */
-
-/* Shared base styles — behind everything (z-index: 1) */
-.modal-deco-img {
-    position: absolute;
-    z-index: 1;
-    pointer-events: none;
-    object-fit: cover;
-}
-
-/* modal_image_1.jpg — bottom left */
-.modal-deco-img--bl {
-    bottom: 0;
-    left: 0;
-    width: 42%;
-    height: auto;
-    max-height: 55%;
-    object-position: top left;
-}
-
-/* modal_image_2.jpeg — top right */
-.modal-deco-img--tr {
-    top: 0;
-    right: 0;
-    width: 38%;
-    height: auto;
-    max-height: 50%;
-    object-position: top right;
 }
