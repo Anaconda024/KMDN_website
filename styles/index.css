@@ -1513,14 +1513,28 @@ body {
    Straddles each section boundary, repeats across any width,
    height-locked so the tear stays crisp & aspect-true on mobile.
    ============================================ */
-.tear {
+.tear_top {
     position: relative;
     z-index: 15;
     width: 100%;
     height: clamp(22px, 2.8vw, 46px);
     margin-top: clamp(-20px, -1.4vw, -30px);
     margin-bottom: clamp(-20px, -1.4vw, -30px);
-    background-image: url('../images/torn-divider-v2.png');
+    background-image: url('../images/torn_divider_t.png');
+    background-repeat: repeat-x;
+    background-position: left center;
+    background-size: auto 100%;
+    pointer-events: none;
+}
+
+.tear_bottom {
+    position: relative;
+    z-index: 15;
+    width: 100%;
+    height: clamp(22px, 2.8vw, 46px);
+    margin-top: clamp(-20px, -1.4vw, -30px);
+    margin-bottom: clamp(-20px, -1.4vw, -30px);
+    background-image: url('../images/torn_divider_b.png');
     background-repeat: repeat-x;
     background-position: left center;
     background-size: auto 100%;
