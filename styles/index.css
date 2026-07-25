@@ -655,6 +655,7 @@ body {
 .hero-card {
     position: relative;
     width: min(38vw, 540px);
+
 }
 .hero-card::before {
     content: '';
@@ -662,7 +663,7 @@ body {
     inset: 0;
     background-image: url('../images/63.png');
     background-position: center;
-    background-size: 100% 100%;
+    background-size: 130% 130%;
     background-repeat: no-repeat;
     opacity: 0.44;
     filter: drop-shadow(0 28px 45px rgba(0, 0, 0, 0.6));
@@ -674,7 +675,7 @@ body {
 .hero-card-inner {
     position: relative;
     z-index: 1;
-    transform: rotate(-6.76deg);
+    transform: rotate(6.76deg);
     transform-origin: center;
     padding: clamp(3rem, 5.5vw, 4.75rem) clamp(2.5rem, 4vw, 3.75rem);
 }
@@ -689,7 +690,6 @@ body {
 }
 
 .hero-heading {
-    transform: rotate(6.76deg);
     font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, Arial, sans-serif;
     font-size: clamp(2.1rem, 3.2vw, 3.4rem);
     line-height: 1.04;
@@ -867,8 +867,8 @@ body {
 .star-badge-img {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    width: 150%;
+    height: 150%;
     object-fit: contain;
 }
 .star-badge-text {
@@ -1017,7 +1017,7 @@ body {
     height: 100%;
     width: clamp(6rem, 11vw, 11rem);
     background-image: url('../images/74SHDW.png');
-    background-size: 100% 100%;
+    background-size: 200% 100%;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
@@ -1046,13 +1046,12 @@ body {
     top: 40px;
     bottom: 40px;
     width: clamp(14px, 1.4vw, 22px);
-    background-image: url('../images/40.png');
-    background-repeat: repeat-y;
+    background-image: url('../images/40_crop.png');
     background-position: center top;
     background-size: 100% auto;
     z-index: 2;
 }
-.services-divider[data-pos="1"] { left: calc(33.333% - 9px); }
+.services-divider[data-pos="1"] { left: calc(33.333% - 30px); }
 .services-divider[data-pos="2"] { left: calc(66.666% - 9px); }
 
 .service-col {
@@ -1247,8 +1246,6 @@ body {
     justify-content: flex-start;
 }
 .about-img--left img {
-    transform: scaleX(-1);
-    object-position: bottom left;
 }
 .about-img--right {
     justify-content: flex-end;
