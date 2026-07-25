@@ -1,4 +1,11 @@
 @font-face {
+    font-family: 'Impacted-nR2AJ';
+    src: url('../fonts/Impacted-nR2AJ.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
     font-family: 'Mancino Oblique';
     src: url('../fonts/manchinos-oblique.ttf') format('truetype');
     font-weight: normal;
@@ -161,7 +168,7 @@ body {
     font-size: 5rem;
     transition: color 0.3s ease;
     position: relative;
-    font-family: 'Damageplan', serif;
+    font-family: 'Impacted-nR2AJ', serif;
 }
 
 .nav-link::after {
@@ -269,7 +276,7 @@ body {
 }
 
 .tear-text {
-    font-family: "Damageplan", serif;
+    font-family: 'Impacted-nR2AJ', serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
     color: #264653;
     font-weight: bold;
@@ -408,7 +415,7 @@ body {
     font-size: 2.5rem;
     transition: color 0.3s ease;
     position: relative;
-    font-family: 'Damageplan', serif;
+    font-family: 'Impacted-nR2AJ', serif;
 }
 
 .nav-link::after {
@@ -548,7 +555,7 @@ body {
     position: relative;
     width: 225px;
     height: 110px;
-    right: -153px;
+    right: -191px;
     cursor: pointer;
     transition: right 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
     overflow: hidden;
@@ -648,16 +655,27 @@ body {
 .hero-card {
     position: relative;
     width: min(38vw, 540px);
-    background-image: url('../images/47.png');
+}
+.hero-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/63.png');
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    opacity: 0.44;
     filter: drop-shadow(0 28px 45px rgba(0, 0, 0, 0.6));
     -webkit-filter: drop-shadow(0 28px 45px rgba(0, 0, 0, 0.6));
+    z-index: 0;
 }
 
 /* Inner padding keeps text off the torn edges */
 .hero-card-inner {
+    position: relative;
+    z-index: 1;
+    transform: rotate(-6.76deg);
+    transform-origin: center;
     padding: clamp(3rem, 5.5vw, 4.75rem) clamp(2.5rem, 4vw, 3.75rem);
 }
 
@@ -671,21 +689,22 @@ body {
 }
 
 .hero-heading {
-    font-family: 'FrederickatheGreat-Regular', 'Arial Black', Helvetica, Arial, sans-serif;
+    transform: rotate(6.76deg);
+    font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, Arial, sans-serif;
     font-size: clamp(2.1rem, 3.2vw, 3.4rem);
     line-height: 1.04;
-    color: #1c1a17;
+    color: #FFFFFF;
     letter-spacing: 0.01em;
     margin-bottom: 1.5rem;
     text-wrap: balance;
 }
 
 .hero-body {
-    font-family: 'Damageplan Text', Helvetica, Arial, sans-serif;
+    font-family: 'PatrickHand-Regular', Helvetica, Arial, sans-serif;
     font-size: clamp(1.05rem, 1.25vw, 1.35rem);
     line-height: 1.55;
     letter-spacing: 0.015em;
-    color: #322d26;
+    color: #FFFFFF;
     margin-bottom: 2rem;
     text-wrap: pretty;
 }
@@ -853,7 +872,7 @@ body {
     object-fit: contain;
 }
 .star-badge-text {
-    font-family: 'Charcoal Dance', 'Permanent Marker', cursive;
+    font-family: 'MinionChaos', 'Charcoal Dance', 'Permanent Marker', cursive;
     position: relative;
     z-index: 1;
     width: 64%;
@@ -900,7 +919,7 @@ body {
     color: #f3f1ea;
 }
 .pp-lead {
-    font-family: 'Damageplan', 'Arial Black', Helvetica, sans-serif;
+    font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
     font-weight: 700;
     font-size: clamp(1.8rem, 3.2vw, 3rem);
     line-height: 1.08;
@@ -949,7 +968,7 @@ body {
 }
 .pp-outro-strong {
     color: #ffffff;
-    font-family: 'Damageplan', 'PatrickHand-Regular', sans-serif;
+    font-family: 'Impacted-nR2AJ', 'PatrickHand-Regular', sans-serif;
     letter-spacing: 0.02em;
 }
 .painpoints-cta {
@@ -959,7 +978,7 @@ body {
 }
 .brutal-btn {
     display: inline-block;
-    font-family: 'Damageplan', 'Arial Black', Helvetica, sans-serif;
+    font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
     font-size: clamp(1.05rem, 1.5vw, 1.5rem);
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -997,7 +1016,7 @@ body {
     left: 0;
     height: 100%;
     width: clamp(6rem, 11vw, 11rem);
-    background-image: url('../images/34_crop.png');
+    background-image: url('../images/74SHDW.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -1026,12 +1045,15 @@ body {
     position: absolute;
     top: 40px;
     bottom: 40px;
-    width: 3px;
-    background: #ffd21f;
+    width: clamp(14px, 1.4vw, 22px);
+    background-image: url('../images/40.png');
+    background-repeat: repeat-y;
+    background-position: center top;
+    background-size: 100% auto;
     z-index: 2;
 }
-.services-divider[data-pos="1"] { left: calc(33.333% - 1.5px); }
-.services-divider[data-pos="2"] { left: calc(66.666% - 1.5px); }
+.services-divider[data-pos="1"] { left: calc(33.333% - 9px); }
+.services-divider[data-pos="2"] { left: calc(66.666% - 9px); }
 
 .service-col {
     display: flex;
@@ -1051,7 +1073,7 @@ body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 10px 16px rgba(0,0,0,0.4));
+    filter: drop-shadow(5px 7px 8px rgba(0,0,0,0.4));
 }
 .service-visual--stack { position: relative; }
 .service-img--back {
@@ -1065,7 +1087,7 @@ body {
     z-index: 2;
 }
 .service-heading {
-    font-family: 'Damageplan', 'Arial Black', sans-serif;
+    font-family: 'Impacted-nR2AJ', 'Arial Black', sans-serif;
     color: #ffffff;
     font-size: clamp(1.3rem, 1.9vw, 1.95rem);
     line-height: 1.05;
@@ -1083,7 +1105,7 @@ body {
 .service-btn {
     display: inline-block;
     margin-top: auto;
-    font-family: 'Damageplan', 'Arial Black', Helvetica, sans-serif;
+    font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
     font-size: clamp(0.95rem, 1.15vw, 1.2rem);
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -1202,7 +1224,7 @@ body {
 .about {
     position: relative;
     z-index: 5;
-    background: #c99a48;
+    background: #eb233c;
     display: grid;
     grid-template-columns: 0.9fr 1fr 1.2fr 0.9fr;
     align-items: end;
@@ -1219,7 +1241,6 @@ body {
     display: block;
     width: 100%;
     height: auto;
-    max-height: clamp(360px, 46vw, 640px);
     object-fit: contain;
 }
 .about-img--left {
@@ -1247,15 +1268,15 @@ body {
 }
 /* heading — matches .pricing-heading exactly */
 .about-invite-heading {
-    font-family: 'Charcoal Dance', 'Permanent Marker', cursive;
-    color: #2b907e;
+    font-family: 'MinionChaos', 'Charcoal Dance', 'Permanent Marker', cursive;
+    color: #000000;
     font-size: clamp(2rem, 3.6vw, 3.4rem);
     line-height: 1.02;
     margin: 0 0 1.2rem;
 }
 .about-gallery-btn {
     display: inline-block;
-    font-family: 'Damageplan', 'Arial Black', Helvetica, sans-serif;
+    font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
     font-size: clamp(1.05rem, 1.5vw, 1.45rem);
     letter-spacing: 0.03em;
     text-transform: uppercase;
@@ -1281,14 +1302,15 @@ body {
     padding: clamp(2rem, 4vw, 4rem) clamp(1.2rem, 2.5vw, 2.2rem);
 }
 .about-value-title {
-    font-family: 'Charcoal Dance', 'Permanent Marker', cursive;
+    font-family: 'MinionChaos', 'Charcoal Dance', 'Permanent Marker', cursive;
     color: #000000;
     font-size: clamp(1.9rem, 3.2vw, 3rem);
     line-height: 1.02;
     margin: 0 0 0.35rem;
 }
 .about-value-sub {
-    font-family: 'Mancino Oblique', 'Oswald', 'Arial Narrow', sans-serif;
+    font-family: 'PatrickHand-Regular', 'Mancino Oblique', 'Oswald', sans-serif;
+    font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -1307,7 +1329,9 @@ body {
 .about-list li {
     position: relative;
     padding-left: 2.6rem;
-    font-family: 'Mancino Oblique', 'Oswald', 'Arial Narrow', sans-serif;
+    font-family: 'PatrickHand-Regular', 'Mancino Oblique', 'Oswald', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
     font-style: normal;
     color: #2a2114;
     font-size: clamp(0.95rem, 1.2vw, 1.18rem);
@@ -1326,6 +1350,7 @@ body {
     background-position: center;
 }
 .about-list-strong {
+    font-family: 'PatrickHand-Regular', 'Mancino Oblique', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -1381,7 +1406,7 @@ body {
 }
 .contact-left { display: flex; flex-direction: column; align-items: flex-start; padding-right: clamp(2.5rem, 6vw, 6rem); }
 .contact-heading {
-    font-family: 'Damageplan', 'Arial Black', Helvetica, sans-serif;
+    font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
     color: #ffffff;
     text-transform: uppercase;
     font-size: clamp(2.4rem, 5vw, 5rem);
@@ -1402,7 +1427,7 @@ body {
 .contact-cta {
     display: inline-block;
     cursor: pointer;
-    font-family: 'Damageplan', 'Arial Black', Helvetica, sans-serif;
+    font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
     font-size: clamp(1.05rem, 1.6vw, 1.55rem);
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -1412,17 +1437,18 @@ body {
     border: 0;
     border-radius: 0;
     padding: 1.05rem 2.2rem;
+    box-shadow: 8px 8px 0 0 #ffffff;
     transition: transform 0.12s steps(2), box-shadow 0.12s steps(2), background 0.05s, color 0.05s;
 }
 .contact-cta:hover {
     background: #ffffff;
     color: #000000;
-    transform: translate(-5px, -5px);
-    box-shadow: 8px 8px 0 0 #000000;
+    transform: translate(-7px, -7px);
+    box-shadow: 12px 12px 0 0 #ffffff;
 }
 .contact-right { display: flex; flex-direction: column; align-items: flex-start; }
 .follow-title {
-    font-family: 'Damageplan', 'Arial Black', Helvetica, sans-serif;
+    font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
     color: #ffffff;
     text-transform: uppercase;
     font-size: clamp(1.6rem, 2.8vw, 2.8rem);
@@ -1558,7 +1584,7 @@ body {
     position: relative;
     width: 225px;
     height: 110px;
-    right: -153px;
+    right: -191px;
     cursor: pointer;
     transition: right 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
     overflow: hidden;
