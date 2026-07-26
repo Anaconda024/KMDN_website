@@ -1,74 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KDMN Studio Group - Digital Innovation</title>
-    <link rel="icon" href="images/logo.png" type="image/jpeg">
-    <link rel="stylesheet" href="styles/gallery.css">
+    <title>Video</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Auto-hiding Navigation Bar -->
-    <nav class="navbar grainy-texture" id="navbar">
-        <div class="navbar-content">
-            <div class="navbar-logo">KDMN Studio</div>
-            
-            <!-- Hamburger Menu Checkbox (Hidden) -->
-            <input class="side-menu" type="checkbox" id="side-menu"/>
-            
-            <!-- Hamburger Icon Label -->
-            <label class="hamb" for="side-menu" aria-label="Menu">
-                <span class="hamb-line"></span>
-            </label>
-            
-            <!-- Navigation Links -->
-            <ul class="navbar-links menu">
-                <li><a href="index.html#home" class="nav-link">Home</a></li>
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Gallery Section -->
-    <section class="Gallery-section grainy-texture" id="Gallery">
-        <canvas id="stars-canvas"></canvas>
-        <div class="Gallery-content">
-            <h1 class="Gallery-heading section-heading">Our Gallery</h1>
-            <div class="Gallery-images">
-                <div  class="Gallery-picture">
-                            <img src="images/Gallery_images/gallery_image1.jpg" alt="Stura Mall" class="Gallery-image">
-                </div>
-                <div  class="Gallery-picture">
-                            <img src="images/Gallery_images/gallery_image2.jpg" alt="Stura Mall" class="Gallery-image">
-                </div>
-                <div  class="Gallery-picture">
-                            <img src="images/Gallery_images/gallery_image3.jpg" alt="Stura Mall" class="Gallery-image">
-                </div>
-                <div  class="Gallery-picture">
-                            <img src="images/Gallery_images/gallery_image4.jpg" alt="Stura Mall" class="Gallery-image">
-                </div>
-                <div  class="Gallery-picture">
-                            <img src="images/Gallery_images/gallery_image5.jpg" alt="Stura Mall" class="Gallery-image">
-                </div>
-                <div  class="Gallery-picture">
-                            <img src="images/Gallery_images/gallery_image7.jpg" alt="Stura Mall" class="Gallery-image">
-                </div>
-                <div  class="Gallery-picture">
-                            <img src="images/Gallery_images/gallery_image8.jpg" alt="Stura Mall" class="Gallery-image">
-                </div>
-                <div  class="Gallery-picture">
-                            <img src="images/Gallery_images/gallery_image9.jpg" alt="Stura Mall" class="Gallery-image">
-                </div>
-            </div>
-        </div>
-    </section>
+    <video 
+        src="videos/KNDM_UNDR_CNST.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto">
+    </video>
 
-
-        <script src="scripts/gallery.js"></script>
 </body>
-
 </html>

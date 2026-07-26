@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Impacted-nR2AJ';
     src: url('../fonts/Impacted-nR2AJ.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
@@ -691,6 +691,7 @@ body {
 
 .hero-heading {
     font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, Arial, sans-serif;
+    font-weight: 500;
     font-size: clamp(2.1rem, 3.2vw, 3.4rem);
     line-height: 1.04;
     color: #FFFFFF;
@@ -920,7 +921,7 @@ body {
 }
 .pp-lead {
     font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: clamp(1.8rem, 3.2vw, 3rem);
     line-height: 1.08;
     color: #ffffff;
@@ -969,6 +970,7 @@ body {
 .pp-outro-strong {
     color: #ffffff;
     font-family: 'Impacted-nR2AJ', 'PatrickHand-Regular', sans-serif;
+    font-weight: 500;
     letter-spacing: 0.02em;
 }
 .painpoints-cta {
@@ -979,6 +981,7 @@ body {
 .brutal-btn {
     display: inline-block;
     font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
+    font-weight: 500;
     font-size: clamp(1.05rem, 1.5vw, 1.5rem);
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -1087,6 +1090,7 @@ body {
 }
 .service-heading {
     font-family: 'Impacted-nR2AJ', 'Arial Black', sans-serif;
+    font-weight: 500;
     color: #ffffff;
     font-size: clamp(1.3rem, 1.9vw, 1.95rem);
     line-height: 1.05;
@@ -1105,6 +1109,7 @@ body {
     display: inline-block;
     margin-top: auto;
     font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
+    font-weight: 500;
     font-size: clamp(0.95rem, 1.15vw, 1.2rem);
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -1274,6 +1279,7 @@ body {
 .about-gallery-btn {
     display: inline-block;
     font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
+    font-weight: 500;
     font-size: clamp(1.05rem, 1.5vw, 1.45rem);
     letter-spacing: 0.03em;
     text-transform: uppercase;
@@ -1404,6 +1410,7 @@ body {
 .contact-left { display: flex; flex-direction: column; align-items: flex-start; padding-right: clamp(2.5rem, 6vw, 6rem); }
 .contact-heading {
     font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
+    font-weight: 500;
     color: #ffffff;
     text-transform: uppercase;
     font-size: clamp(2.4rem, 5vw, 5rem);
@@ -1446,6 +1453,7 @@ body {
 .contact-right { display: flex; flex-direction: column; align-items: flex-start; }
 .follow-title {
     font-family: 'Impacted-nR2AJ', 'Arial Black', Helvetica, sans-serif;
+    font-weight: 500;
     color: #ffffff;
     text-transform: uppercase;
     font-size: clamp(1.6rem, 2.8vw, 2.8rem);
